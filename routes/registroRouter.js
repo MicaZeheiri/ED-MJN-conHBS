@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const paginaRegistro = require('../controllers/registroController')
 
-router.get('/', (req, res) => {
-    res.render('registro', {
-        style: ['login.css']
-    });
-});
-
+router.get('/', paginaRegistro);
 
 module.exports = router;

@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const paginaClases = require('../controllers/clasesController');
 
-router.get('/', (req, res) => {
-    res.render('clases', {
-        style: ['clases.css']
-    });
-});
+router.get('/', paginaClases);
 
 
 module.exports = router;

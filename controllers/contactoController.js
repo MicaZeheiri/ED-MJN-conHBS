@@ -1,4 +1,3 @@
-
 // IMPORTAMOS LA CONECCION A LA BASE DE DATOS
 const connection = require('../models/config');
 
@@ -24,7 +23,7 @@ const paginaFormulario = (req, res) => {
     
     console.log(`Los datos son: ${persona.nombre}, ${persona.consulta}`); */
 
-    //cargo la sentencia, donde le van a asegur los datos a guardar en la database
+    //cargo la sentencia, donde le van a asignar los datos a guardar en la database
     const sqlQuery = `INSERT INTO PERSONA SET ?`;
 
     const datosSql = {

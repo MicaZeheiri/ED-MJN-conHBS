@@ -5,7 +5,7 @@ const { paginaContacto,
         paginaListar
         } = require('../controllers/contactoController');
 
-router.get('/',paginaContacto);
+router.get('/', paginaContacto);
 
 router.post('/formulario', paginaFormulario); 
 

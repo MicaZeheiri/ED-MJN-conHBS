@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const paginaStaff = require('../controllers/staffController');
 
-router.get('/', (req, res) => {
-    res.render('staff', {
-        style: ['staff.css']
-    });
-});
+router.get('/', paginaStaff);
 
 
 module.exports = router;
