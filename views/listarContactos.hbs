@@ -1,0 +1,30 @@
+<div class="container mt-5 text-center">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Consulta</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {{#each persona}}
+                <tr>
+                    <th scope="row">{{idPersona}}</th>
+                    <td>{{nombre}}</td>
+                    <td>{{apellido}}</td>
+                    <td>{{telefono}}</td>
+                    <td>{{email}}</td>
+                    <td>{{consulta}}</td>
+                </tr>
+            {{/each}}
+
+            {{!-- {{#if contacto.lenght === 0}}
+                <tr colspan="6">No hay contactos para mostrar</tr>
+            {{/if}} --}}
+        </tbody>
+    </table>
+</div>
