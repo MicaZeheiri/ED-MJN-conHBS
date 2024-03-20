@@ -1,4 +1,4 @@
-// IMPORTAMOS LA CONECCION A LA BASE DE DATOS
+// IMPORTAMOS LA CONEXIÓN A LA BASE DE DATOS
 const connection = require('../models/config');
 
 const paginaContacto = (req, res) => {
@@ -28,7 +28,7 @@ const paginaFormulario = (req, res) => {
 
     const datosSql = {
         nombre: nombre,
-        apellido:apellido,
+        apellido: apellido,
         telefono: telefono,
         email: email,
         consulta: consulta,
@@ -47,7 +47,7 @@ const paginaFormulario = (req, res) => {
                 style: ['index.css']
             });
         }
-     });
+    });
 
 }
 
@@ -58,7 +58,7 @@ const paginaListar = (req, res) => {
         if (err) {
             console.log('Error al LEER los datos');
             console.log(err);
-            res.send('Error al LEER los datos')
+            res.send('Error al LEER los datos');
         } else {
             console.log('Datos LEIDOS correctamente');
             console.log(result);
@@ -68,13 +68,62 @@ const paginaListar = (req, res) => {
             res.render('listarContactos', {
                 style: ['clases.css'],
                 persona: result
+            })
+        }
+    });
+}
+
+const paginaBorrar = (req, res) => {
+    const id = req.body.idPersona;
+    console.log(id);
+    // otra forma
+    /* const {idPersona} = req.body;
+    console.log(idPersona); */
+
+
+    /* res.redirect('/') */
+    /* res.render('index', {
+        style: ['index.css'],
+    }) */
+
+    //guardo la info del elemento a eliminar
+    eliminado(id);
+
+    const sqlQuery = `DELETE FROM persona WHERE idPersona = ${id}`;
+    connection.query(sqlQuery, (err, result) => {
+        if (err) {
+            console.log('Error al borrar datos');
+            console.log(err);
+            res.send('Error al borrar datos');
+        } else {
+            res.render('contacto', {
+                style: ['contacto.css'],
             });
         }
-        });
-};
+    });
+}
+
+const eliminado = (id) => {
+    const sqlQuery = `SELECT * FROM PERSONA WHERE idPersona = ${id}`;
+    connection.query(sqlQuery, (err, result) => {
+        if (err) {
+            console.log('Error al LEER los datos');
+            console.log(err);
+            res.send('Error al LEER los datos');
+        } else {
+            console.log('El usuario eliminado es: ');
+            console.log('================================');
+            console.log(result[0]);
+            console.log('================================');
+        }
+    });
+}
+
+
 
 module.exports = {
     paginaContacto,
     paginaFormulario,
     paginaListar,
+    paginaBorrar
 }

@@ -49,6 +49,10 @@
     color: white;
 }
 
+#enviarConsulta:hover {
+    background-color: rgb(148, 55, 75);
+}
+
 #title-redes {
     color: #831f3f;
     font-weight: 600;

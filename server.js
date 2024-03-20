@@ -7,7 +7,7 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 
 //conexion a base de datos
-const conexion = require('./models/config')
+const connection = require('./models/config')
 
 
 /* conexion.connect();

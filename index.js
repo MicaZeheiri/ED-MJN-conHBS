@@ -42,6 +42,14 @@ app.get('/', (req, res) => {
     });
 });
 
+
+// Para hacer después una página de error
+/* app.get('/*', (req, res) => {
+    res.render('error', {
+        style: ['error.css']
+    });
+}); */
+
 module.exports = app;
 
 
