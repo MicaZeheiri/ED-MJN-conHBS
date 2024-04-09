@@ -121,9 +121,68 @@ const eliminado = (id) => {
 
 
 
+// funcion para actualizar datos de la base de datos
+const paginaActualizar = (req, res) => {
+
+    const id = req.body.idPersona;
+
+    /*const sqlQuery = `SELECT nombre, apellido, telefono FROM PERSONA WHERE idPersona = ${id}`; */
+    const sqlQuery = `SELECT * FROM PERSONA WHERE idPersona = ${id}`;
+    connection.query(sqlQuery, (err, result) => {
+        if (err) {
+            console.log('Error al LEER los datos');
+            console.log(err);
+            res.send('Error al LEER los datos');
+        } else {
+            console.log('Datos LEIDOS correctamente');
+            console.log(result[0]);
+
+            res.render('editarContacto', {
+                style: ['contacto.css'],
+                persona: result[0]
+            })
+        }
+    });
+
+}
+
+const paginaActualizado = (req, res) => {
+    const nombre = req.body.nombre;
+    const apellido = req.body.apellido;
+    const telefono = parseInt(req.body.telefono);
+    const email = req.body.email;
+    const id = req.body.idPersona;
+
+    const sqlQuery = `UPDATE PERSONA SET nombre = '${nombre}', apellido = '${apellido}', telefono = '${telefono}', email = '${email}' WHERE idPersona = '${id}'`;
+
+    const datosSql = {
+        nombre: nombre,
+        apellido: apellido,
+        telefono: telefono,
+        email: email
+    };
+
+    connection.query(sqlQuery, datosSql, (err, result) => {
+        if (err) {
+            console.log('Error al LEER los datos');
+            console.log(err);
+            res.send('Error al LEER los datos');
+        } else {
+            console.log('Datos LEIDOS correctamente');
+
+            res.render('index', {
+                style: ['index.css'],
+            })
+        }
+    })
+}
+
+
 module.exports = {
     paginaContacto,
     paginaFormulario,
     paginaListar,
-    paginaBorrar
+    paginaBorrar,
+    paginaActualizar,
+    paginaActualizado
 }

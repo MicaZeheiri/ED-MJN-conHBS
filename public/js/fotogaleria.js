@@ -18,10 +18,9 @@ fetch('../imagenes.json')
 
       divElement.appendChild(imgElement);
       galeriaContainer.appendChild(divElement);
+    });
+  })
 
-    })
-      .catch(error => console.error('Error al cargar el archivo JSON', error));
-
+  .catch(error => {
+    console.error('Error al cargar el archivo JSON', error)
   });
-
-

@@ -1,0 +1,57 @@
+<div class="conrainer m-5" id="formulario">
+
+
+    <form id="miFormulario" method="post" action="/api/contacto/actualizado">
+    <p>
+        <input type="hidden" name="idPersona" value={{ persona.idPersona }}>
+    </p>
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input id="nombre" name="nombre" type="text" class="form-control" value={{persona.nombre}} required>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input id="apellido" name="apellido" type="text" class="form-control" value={{persona.apellido}} required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" name="email" class="form-control" type="email" value={{persona.email}} required>
+                </div>
+            </div>
+
+            <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input id="telefono" name="telefono" class="form-control" type="text" value={{ persona.telefono }} required>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="consulta" class="form-label">Consulta</label>
+            <textarea name="consulta" class="form-control" rows="5"
+                placeholder="Deje aquí su consulta y nos comunicaremos con usted lo más pronto posible." value={{ persona.consulta }} required>
+                </textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn mt-2" id="enviarConsulta" value="Actualizar datos"></input>
+            <button type="reset" class="btn mt-2">Limpiar campos</button>
+        </div>
+    </form>
+
+</div>
