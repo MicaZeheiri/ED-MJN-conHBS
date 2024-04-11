@@ -8,6 +8,7 @@
                 <th scope="col">Teléfono</th>
                 <th scope="col">Email</th>
                 <th scope="col">Consulta</th>
+                <th scope="col">Provincia</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -19,12 +20,13 @@
                 <td>{{telefono}}</td>
                 <td>{{email}}</td>
                 <td>{{consulta}}</td>
+                <td>{{nombreProvincia}}</td>
             </tr>
             {{/each}}
 
             {{#unless persona}}
             <tr>
-                <td colspan="6">No hay contactos para mostrar</td>
+                <td colspan="7">No hay contactos para mostrar</td>
             </tr>
             {{/unless}}
         </tbody>

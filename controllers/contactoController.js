@@ -13,6 +13,7 @@ const paginaFormulario = (req, res) => {
     const telefono = parseInt(req.body.telefono);
     const email = req.body.email;
     const consulta = req.body.consulta;
+    const provincia = parseInt(req.body.provincia);
 
     /* const persona = {
         nombre,
@@ -23,6 +24,11 @@ const paginaFormulario = (req, res) => {
     
     console.log(`Los datos son: ${persona.nombre}, ${persona.consulta}`); */
 
+    // prueba de data
+    const select = req.body.select;
+    console.log(select);
+
+
     //cargo la sentencia, donde le van a asignar los datos a guardar en la database
     const sqlQuery = `INSERT INTO PERSONA SET ?`;
 
@@ -32,6 +38,7 @@ const paginaFormulario = (req, res) => {
         telefono: telefono,
         email: email,
         consulta: consulta,
+        provinciaPersona: provincia
     };
 
     // Ejecuta una consulta a la base de datos con el metodo query
@@ -53,7 +60,11 @@ const paginaFormulario = (req, res) => {
 
 
 const paginaListar = (req, res) => {
-    const sqlQuery = `SELECT * FROM PERSONA`;
+    const sqlQuery = `select persona.idPersona, persona.nombre, persona.apellido, persona.telefono, persona.email, persona.consulta, provincia.nombreProvincia
+    from persona 
+    inner join provincia 
+    on provinciaPersona = idProvincia
+    order by idPersona`;
     connection.query(sqlQuery, (err, result) => {
         if (err) {
             console.log('Error al LEER los datos');
@@ -154,6 +165,7 @@ const paginaActualizado = (req, res) => {
     const id = req.body.idPersona;
 
     const sqlQuery = `UPDATE PERSONA SET nombre = '${nombre}', apellido = '${apellido}', telefono = '${telefono}', email = '${email}' WHERE idPersona = '${id}'`;
+    /*const sqlQuery = `UPDATE PERSONA SET ? WHERE idPersona = '${id}'`; */
 
     const datosSql = {
         nombre: nombre,

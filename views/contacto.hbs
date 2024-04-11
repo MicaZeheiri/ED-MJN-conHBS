@@ -56,11 +56,39 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            {{!-- <div class="col-sm-6">
+                                <div class="form-group mb-3">
+                                    <select name="provincia" id="provincia">
+                                        <option value="1">Córdoba</option>
+                                        <option value="2">Mendoza</option>
+                                        <option value="3">Buenos Aires</option>
+                                    </select>
+                                </div>
+                            </div> --}}
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-group">
+                                    <label for="provincia" class="form-label">Provincia</label>
+                                    <input id="provincia" name="provincia" class="form-control" type="text"
+                                        placeholder="Ingrese números del 1 al 3" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-group">
+                                    <select name="select">
+                                        <option value="Córdoba" selected>Córdoba</option>
+                                        <option value="Buenos Aires">Buenos Aires</option>
+                                        <option value="Mendoza">Mendoza</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         <br>
 
                         <div class="form-group">
                             <label for="consulta" class="form-label">Consulta</label>
-                            <textarea name="consulta" class="form-control" rows="5"
+                            <textarea id="consulta" name="consulta" class="form-control" rows="5"
                                 placeholder="Deje aquí su consulta y nos comunicaremos con usted lo más pronto posible."
                                 required></textarea>
                         </div>
